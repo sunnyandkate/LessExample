@@ -1,0 +1,123 @@
+/* colors*/
+ 
+@color:#15101b;  
+@bg-color:#008075;
+@heading-color:rgb(105, 188, 215);
+@btn-bg-color:rgb(0, 204, 255);
+@btn-color:rgb(38, 121, 94);
+
+/*font*/
+
+@font-heading:'Mv Boli';
+@font-text: 'Helvetica';
+/*size*/
+@font-lg:2rem;
+@font-md:1rem;
+@font-sm:.8rem;
+/*width*/
+@width:100%;
+@halfWidth:50%;
+/*height*/
+@height:100%;
+@halfHeight: 50%;
+
+body{
+    color:@color;
+    background-color: @bg-color;
+    font-family:@font-text;
+    width:@width;
+    box-sizing:border-box;
+}
+.container{
+    min-height:30rem;
+    padding:1rem;
+}
+h1{
+    color:@heading-color;
+    font-family: @font-heading;
+}
+p{
+    font-family:@font-text;
+    font-size:@font-md;
+}
+.button{
+    border:2px solid @btn-bg-color;
+    box-shadow: 2px 2px 10px @btn-color;
+    color:@btn-color;
+    background-color: @btn-bg-color;
+    padding:.7rem;
+    border-radius: .8rem;
+    text-transform: uppercase;
+}
+a{
+    text-decoration: none;
+}
+
+nav{
+   padding-top:1rem;
+
+    ul{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        @media(min-width:600px){
+            flex-direction: row;
+        }
+        li{
+            list-style:none;
+            margin-bottom:2rem;
+            text-align: right;
+            margin-right: 1rem;
+
+            a{
+                .button();
+            }
+        }
+    }
+}
+.box-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:center;
+    margin-top:2rem;
+    @media(min-width: 600px){
+        flex-direction: row;
+    }
+}
+.box{
+    width:5rem;
+    height:5rem;
+    border:2px solid black;
+    margin-bottom: 1rem;
+}
+@lightBoxColor: white;
+@darkBoxColor:black;
+@lightBoxBg:boolean(@lightBoxColor = black);
+@darkBoxBg:black;
+.box1 when(@lightBoxColor = white){
+    background-color: @darkBoxColor;
+    .box();
+}
+   
+.box2 when(@darkBoxColor = black){
+   background-color: @lightBoxColor;
+
+    .box();
+}
+footer{
+    margin-top:20rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    @media(min-width:600px){
+        flex-direction: row;
+    }
+    p{
+        display:inline-block;
+    }
+    a{
+        color:@color;
+    }
+}
